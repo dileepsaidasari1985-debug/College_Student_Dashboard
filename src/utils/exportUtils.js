@@ -22,51 +22,51 @@ export const downloadCSV = (filename, headers, rows) => {
 
 export const exportAttendanceCSV = (subjects, student) => {
   const headers = ['Subject Code', 'Subject Name', 'Type', 'Faculty', 'Classes Conducted', 'Classes Attended', 'Classes Missed', 'Attendance Percentage (%)', 'Status'];
-  const rows = subjects.map(s => [
-    s.code,
-    s.name,
-    s.type,
-    s.faculty,
-    s.classesConducted,
-    s.classesAttended,
-    s.classesMissed,
-    s.attendancePercentage.toFixed(1) + '%',
-    s.attendancePercentage >= 75 ? 'Eligible' : 'Shortage Warning'
+  const rows = (subjects || []).map(s => [
+    s?.code || '',
+    s?.name || '',
+    s?.type || '',
+    s?.faculty || '',
+    s?.classesConducted || 0,
+    s?.classesAttended || 0,
+    s?.classesMissed || 0,
+    (s?.attendancePercentage || 0).toFixed(1) + '%',
+    (s?.attendancePercentage || 0) >= 75 ? 'Eligible' : 'Shortage Warning'
   ]);
-  downloadCSV(`Attendance_Report_${student.rollNumber}`, headers, rows);
+  downloadCSV(`Attendance_Report_${student?.rollNumber || 'ID'}`, headers, rows);
 };
 
 export const exportMarksCSV = (semesters, student) => {
   const headers = ['Semester', 'Subject Code', 'Subject Name', 'Credits', 'Internal Marks', 'External Marks', 'Total Marks', 'Grade', 'Grade Point', 'Status'];
   const rows = [];
-  semesters.forEach(sem => {
-    sem.subjects.forEach(sub => {
+  (semesters || []).forEach(sem => {
+    (sem?.subjects || []).forEach(sub => {
       rows.push([
-        `Semester ${sem.semester}`,
-        sub.code,
-        sub.name,
-        sub.credits,
-        sub.internal ?? '-',
-        sub.external ?? '-',
-        sub.total,
-        sub.grade,
-        sub.gradePoint,
-        sub.status
+        `Semester ${sem?.semester || ''}`,
+        sub?.code || '',
+        sub?.name || '',
+        sub?.credits || 0,
+        sub?.internal ?? '-',
+        sub?.external ?? '-',
+        sub?.total || 0,
+        sub?.grade || '',
+        sub?.gradePoint || 0,
+        sub?.status || ''
       ]);
     });
   });
-  downloadCSV(`Academic_Transcript_${student.rollNumber}`, headers, rows);
+  downloadCSV(`Academic_Transcript_${student?.rollNumber || 'ID'}`, headers, rows);
 };
 
 export const exportTimetableCSV = (timetable, student) => {
   const headers = ['Day', 'Time Slot', 'Subject Code', 'Subject Name', 'Type', 'Room', 'Faculty'];
   const rows = [];
-  Object.entries(timetable).forEach(([day, slots]) => {
-    slots.forEach(slot => {
-      rows.push([day, slot.time, slot.code, slot.subject, slot.type, slot.room, slot.faculty]);
+  Object.entries(timetable || {}).forEach(([day, slots]) => {
+    (slots || []).forEach(slot => {
+      rows.push([day, slot?.time || '', slot?.code || '', slot?.subject || '', slot?.type || '', slot?.room || '', slot?.faculty || '']);
     });
   });
-  downloadCSV(`Timetable_${student.rollNumber}`, headers, rows);
+  downloadCSV(`Timetable_${student?.rollNumber || 'ID'}`, headers, rows);
 };
 
 export const printUniversityDocument = ({ title, documentType, student, contentHtml }) => {

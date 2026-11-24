@@ -5,7 +5,7 @@ import { useStudent } from '../../context/StudentContext';
 export const FeesView = () => {
   const { student, fees, payFee } = useStudent();
   const [payModal, setPayModal] = useState(false);
-  const [amount, setAmount] = useState(fees.remainingBalance || 15000);
+  const [amount, setAmount] = useState(fees?.remainingBalance || 15000);
 
   const handlePay = (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ export const FeesView = () => {
           <h2 className="text-xl sm:text-2xl font-black text-white">Tuition & College Fee Details</h2>
           <p className="text-xs sm:text-sm text-slate-300 mt-1">Payment installments, receipts, and outstanding dues.</p>
         </div>
-        {fees.remainingBalance > 0 && (
+        {(fees?.remainingBalance || 0) > 0 && (
           <button onClick={() => setPayModal(true)} className="px-5 py-2.5 rounded-xl text-xs font-bold bg-indigo-500 text-white">
             Pay Outstanding Balance
           </button>
@@ -30,21 +30,21 @@ export const FeesView = () => {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="p-4 rounded-2xl portal-card border border-slate-800">
           <span className="text-xs text-slate-400">Total Annual Fee</span>
-          <div className="text-2xl font-black text-white mt-1">₹{fees.totalAnnualFee.toLocaleString()}</div>
+          <div className="text-2xl font-black text-white mt-1">₹{(fees?.totalAnnualFee || 0).toLocaleString()}</div>
         </div>
         <div className="p-4 rounded-2xl portal-card border border-emerald-500/20">
           <span className="text-xs text-slate-400">Amount Paid</span>
-          <div className="text-2xl font-black text-emerald-400 mt-1">₹{fees.amountPaid.toLocaleString()}</div>
+          <div className="text-2xl font-black text-emerald-400 mt-1">₹{(fees?.amountPaid || 0).toLocaleString()}</div>
         </div>
         <div className="p-4 rounded-2xl portal-card border border-amber-500/20">
           <span className="text-xs text-slate-400">Remaining Due</span>
-          <div className="text-2xl font-black text-amber-400 mt-1">₹{fees.remainingBalance.toLocaleString()}</div>
+          <div className="text-2xl font-black text-amber-400 mt-1">₹{(fees?.remainingBalance || 0).toLocaleString()}</div>
         </div>
       </div>
 
       <div className="p-6 rounded-3xl portal-card border border-slate-800 space-y-3">
         <h3 className="text-sm font-bold text-white mb-2">Payment Receipts</h3>
-        {fees.transactions.map((t) => (
+        {(fees?.transactions || []).map((t) => (
           <div key={t.id} className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 flex items-center justify-between text-xs">
             <div>
               <span className="font-mono text-cyan-400 font-bold block">{t.receiptId}</span>

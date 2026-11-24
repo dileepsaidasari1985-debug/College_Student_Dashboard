@@ -38,15 +38,15 @@ export const DashboardOverview = () => {
     attendanceThreshold,
   } = useStudent();
 
-  const lowAttendanceSubjects = subjects.filter(s => s.attendancePercentage < attendanceThreshold);
+  const lowAttendanceSubjects = (subjects || []).filter(s => s && s.attendancePercentage < (attendanceThreshold || 75));
   const todayName = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-  const todaySchedule = timetable[todayName] || timetable['Monday'] || [];
-  const nearestAssignment = assignments.find(a => a.status === 'Pending');
-  const nearestExam = examinations[0];
+  const todaySchedule = (timetable && timetable[todayName]) || (timetable && timetable['Monday']) || [];
+  const nearestAssignment = (assignments || []).find(a => a && a.status === 'Pending') || assignments?.[0];
+  const nearestExam = examinations?.[0];
 
-  const subjectAttendanceData = subjects.map(s => ({
-    name: s.code,
-    attendance: s.attendancePercentage,
+  const subjectAttendanceData = (subjects || []).map(s => ({
+    name: s?.code || '',
+    attendance: s?.attendancePercentage || 0,
   }));
 
   return (

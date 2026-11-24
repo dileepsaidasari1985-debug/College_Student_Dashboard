@@ -32,7 +32,7 @@ export const LogoutModal = ({ isOpen, onClose }) => {
             </div>
             <h3 className="text-base font-bold text-white">Logout from Portal?</h3>
             <p className="text-xs text-slate-400 mt-1">
-              End session for <strong className="text-white">{student.fullName}</strong> ({student.rollNumber})?
+              End session for <strong className="text-white">{student?.fullName || 'Student'}</strong> ({student?.rollNumber || 'ID'})?
             </p>
             <div className="mt-5 space-y-2">
               <button onClick={handleSimulatedLogout} className="w-full py-2.5 rounded-xl text-xs font-bold bg-rose-500 hover:bg-rose-600 text-white">

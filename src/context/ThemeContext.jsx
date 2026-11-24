@@ -144,7 +144,9 @@ export const ThemeProvider = ({ children }) => {
       value={{
         activePreset,
         setPreset: handleSetPreset,
+        setThemePreset: handleSetPreset,
         presetConfig,
+        themePreset: presetConfig,
         themeMode,
         toggleThemeMode,
         compactMode,

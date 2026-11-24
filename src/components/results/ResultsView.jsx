@@ -7,7 +7,7 @@ export const ResultsView = () => {
   const { student, semesterResults } = useStudent();
   const [activeSemNumber, setActiveSemNumber] = useState(6);
 
-  const activeSemester = semesterResults.find(s => s.semester === activeSemNumber) || semesterResults[0];
+  const activeSemester = semesterResults?.find(s => s?.semester === activeSemNumber) || semesterResults?.[0] || { semester: 6, sgpa: 9.12, cgpa: 9.12, subjects: [] };
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">
@@ -57,7 +57,7 @@ export const ResultsView = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-800">
-              {activeSemester.subjects.map((sub, i) => (
+              {(activeSemester?.subjects || []).map((sub, i) => (
                 <tr key={i} className="hover:bg-slate-800/30">
                   <td className="py-3 font-mono font-bold text-purple-400">{sub.code}</td>
                   <td className="py-3 font-semibold text-white">{sub.name}</td>

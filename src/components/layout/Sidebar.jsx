@@ -60,7 +60,7 @@ export const Sidebar = ({ onOpenLogout }) => {
     attendanceThreshold
   } = useStudent();
 
-  const hasLowAttendance = subjects.some(s => s.attendancePercentage < attendanceThreshold);
+  const hasLowAttendance = (subjects || []).some(s => s && s.attendancePercentage < (attendanceThreshold || 75));
 
   const handleNavClick = (tabId) => {
     setActiveTab(tabId);

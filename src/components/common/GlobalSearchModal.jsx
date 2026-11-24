@@ -27,10 +27,10 @@ export const GlobalSearchModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const q = query.toLowerCase().trim();
-  const matchedSubjects = q ? subjects.filter(s => s.name.toLowerCase().includes(q) || s.code.toLowerCase().includes(q)) : [];
-  const matchedAssignments = q ? assignments.filter(a => a.title.toLowerCase().includes(q) || a.subject.toLowerCase().includes(q)) : [];
-  const matchedMaterials = q ? studyMaterials.filter(m => m.title.toLowerCase().includes(q) || m.subject.toLowerCase().includes(q)) : [];
-  const matchedAnnouncements = q ? announcements.filter(a => a.title.toLowerCase().includes(q)) : [];
+  const matchedSubjects = q ? (subjects || []).filter(s => (s?.name || '').toLowerCase().includes(q) || (s?.code || '').toLowerCase().includes(q)) : [];
+  const matchedAssignments = q ? (assignments || []).filter(a => (a?.title || '').toLowerCase().includes(q) || (a?.subject || '').toLowerCase().includes(q)) : [];
+  const matchedMaterials = q ? (studyMaterials || []).filter(m => (m?.title || '').toLowerCase().includes(q) || (m?.subject || '').toLowerCase().includes(q)) : [];
+  const matchedAnnouncements = q ? (announcements || []).filter(a => (a?.title || '').toLowerCase().includes(q)) : [];
 
   const handleSelect = (tab) => {
     setActiveTab(tab);

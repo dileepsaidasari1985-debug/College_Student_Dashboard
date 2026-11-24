@@ -39,25 +39,25 @@ export const AnalyticsView = () => {
   const [activeAnalysisTab, setActiveAnalysisTab] = useState('overview');
 
   // CGPA & SGPA Growth Data
-  const gpaTrendData = semesterResults.map(sem => ({
+  const gpaTrendData = (semesterResults || []).map(sem => ({
     semester: `Sem ${sem.semester}`,
     SGPA: sem.sgpa,
     CGPA: sem.cgpa,
   }));
 
   // Subject marks comparison data (Current Sem)
-  const subjectMarksData = subjects.map(s => ({
-    name: s.code,
-    fullName: s.name,
-    Internal: s.internalMarks,
-    AttendancePct: s.attendancePercentage,
+  const subjectMarksData = (subjects || []).map(s => ({
+    name: s?.code || '',
+    fullName: s?.name || '',
+    Internal: s?.internalMarks || 0,
+    AttendancePct: s?.attendancePercentage || 0,
   }));
 
   // Grade Distribution Calculation
   const gradeCounts = {};
-  semesterResults.forEach(sem => {
-    sem.subjects.forEach(sub => {
-      const g = sub.grade || 'A';
+  (semesterResults || []).forEach(sem => {
+    (sem?.subjects || []).forEach(sub => {
+      const g = sub?.grade || 'A';
       gradeCounts[g] = (gradeCounts[g] || 0) + 1;
     });
   });

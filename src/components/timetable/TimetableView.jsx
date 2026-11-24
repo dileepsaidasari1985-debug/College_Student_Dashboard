@@ -8,7 +8,7 @@ export const TimetableView = () => {
   const daysList = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const [selectedDay, setSelectedDay] = useState('Monday');
 
-  const slots = timetable[selectedDay] || [];
+  const slots = (timetable && timetable[selectedDay]) || (timetable && timetable['Monday']) || [];
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">

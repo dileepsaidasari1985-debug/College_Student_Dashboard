@@ -17,7 +17,7 @@ export const AttendanceView = () => {
   const [selectedSubjectId, setSelectedSubjectId] = useState(subjects[0]?.id || 'CS601');
   const [targetPercentage, setTargetPercentage] = useState(80);
 
-  const selectedSubject = subjects.find(s => s.id === selectedSubjectId) || subjects[0];
+  const selectedSubject = subjects?.find(s => s?.id === selectedSubjectId) || subjects?.[0] || {};
 
   const calcRequiredClasses = (attended, conducted, target) => {
     const t = target / 100;
@@ -33,8 +33,8 @@ export const AttendanceView = () => {
     return Math.max(0, maxConducted - conducted);
   };
 
-  const requiredToAttend = calcRequiredClasses(selectedSubject.classesAttended, selectedSubject.classesConducted, targetPercentage);
-  const safeToMiss = calcSafeToBunk(selectedSubject.classesAttended, selectedSubject.classesConducted, attendanceThreshold);
+  const requiredToAttend = selectedSubject?.classesConducted ? calcRequiredClasses(selectedSubject.classesAttended || 0, selectedSubject.classesConducted || 0, targetPercentage) : 0;
+  const safeToMiss = selectedSubject?.classesConducted ? calcSafeToBunk(selectedSubject.classesAttended || 0, selectedSubject.classesConducted || 0, attendanceThreshold || 75) : 0;
 
   return (
     <div className="space-y-6 animate-in fade-in duration-300">

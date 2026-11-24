@@ -75,7 +75,7 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen ${themePreset.bgClass} flex flex-col font-sans transition-colors duration-300 text-slate-800 dark:text-slate-100`}>
+    <div className={`min-h-screen ${themePreset?.bgClass || 'theme-navy'} flex flex-col font-sans transition-colors duration-300 text-slate-800 dark:text-slate-100`}>
       {/* Fixed Sidebar */}
       <Sidebar onOpenLogout={() => setLogoutModalOpen(true)} />
 
