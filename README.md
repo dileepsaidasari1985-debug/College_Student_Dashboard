@@ -1,240 +1,151 @@
-# 🌌 NEXORA AI — Premium AI Technology Company Website
-> *"Intelligence Beyond Imagination."*
+# 🎓 Autonomous Indian Institute of Technology & Science
+## 🚀 Advanced College Student ERP Dashboard & Academic Management System
 
-A world-class, futuristic, modern, fully responsive AI technology company website built for **NEXORA AI**. Showcases cutting-edge foundation models, autonomous neural architectures, interactive enterprise tools, and real-world industrial transformation.
+![College Student ERP Portal](https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80)
 
----
-
-## 🌟 Master Highlights & Architectural Features
-
-### 1. Futuristic Branding & Visual Design
-- **Theme & Colors:** Dark navy (`#060913`, `#0a0f1d`) and obsidian black background with electric cyan (`#00d2ff`), violet (`#8b5cf6`), and purple gradients.
-- **Glassmorphism:** Multi-layered glass cards with backdrop blur (`backdrop-blur-xl`), glowing gradient borders, and animated radial ambient backdrops.
-- **Neural Network Canvas:** Interactive HTML5 Canvas simulating particle synapses, neural nodes, and mouse proximity attraction/repulsion.
-- **Responsive Custom Cursor:** Precision glowing cursor dot and smooth lagging ring on desktop (automatically disabled on touch devices).
-- **Scroll Progress & Back to Top:** Real-time gradient progress bar across the viewport top and floating smooth scroll back-to-top button.
-- **Theme Switcher:** Instant toggle between Dark Mode and Executive Light Mode with CSS custom properties.
-- **Multilingual Support:** Live language switcher with support for English, Spanish, German, French, and Japanese.
+> A premium-quality, modern, fully responsive, and interactive **College Student ERP Portal** engineered for higher education institutions. Provides comprehensive academic lifecycle management including attendance tracking with AI shortage predictors, semester examination grades, interactive weekly routine, digital library notes, assignments with file upload, fee receipts, calendar events, and multi-role student administration.
 
 ---
 
-### 2. Sticky Modern Navigation Bar
-- Company logo with glowing neural processor icon and AI 3.0 badge.
-- Active section scroll-spy highlighting for all 10 navigation links.
-- Smart Search trigger (Keyboard shortcut: `Ctrl + K` or `Cmd + K`).
-- Language selector dropdown.
-- Dark / Light mode toggle.
-- "Get Started" gradient CTA button opening the Interactive Demo Request modal.
-- Responsive mobile drawer menu.
+## 🌐 Live Worldwide Production URL
+- **Production URL:** [https://iits-student-portal.surge.sh](https://iits-student-portal.surge.sh)
+- **GitHub Repository:** [https://github.com/dileepsaidasari1985-debug/College_Student_Dashboard](https://github.com/dileepsaidasari1985-debug/College_Student_Dashboard)
 
 ---
 
-### 3. Hero Section — Future of AI
-- **Main Heading:** *"Empowering the Future with Artificial Intelligence."*
-- **Subtitle:** *"Transforming ideas into intelligent solutions through innovative AI technology."*
-- **Typing Animation:** Smooth character typing looping through 5 AI disciplines:
-  1. *Artificial Intelligence.*
-  2. *Machine Learning.*
-  3. *Generative AI.*
-  4. *Intelligent Automation.*
-  5. *Computer Vision.*
-- **Interactive Holographic Telemetry Centerpiece:** Rotating latency indicators, reasoning core specs, zero-data-retention cryptographic shield, and live status ping.
-- **Action CTAs:**
-  - *Explore AI Products* (smooth scrolls to `#products`)
-  - *Discover Our Technology* (smooth scrolls to `#technology`)
-  - *Interactive AI Demonstration* (launches `#playground`)
-- **Animated Statistics:** 250+ Solutions, 45+ Technologies, 18+ Industries, 120+ Research Papers (with clear conceptual demonstration disclosure).
+## 📸 Key Features & Capabilities
+
+### 1. 🏛️ Modern Dashboard Overview & KPIs
+- **Personalized Header:** "Welcome Back, [Student Name]!" with institutional accreditation badges, department, year, and semester details.
+- **Summary Cards & Counters:** Total Attendance Percentage, Cumulative CGPA, Enrolled Subjects, Pending Assignments, Upcoming Examinations, and Unread Notifications.
+- **Today's Class Schedule:** Real-time timetable schedule with room numbers, faculty details, and active time slot indicator.
+- **Quick Shortcuts:** Direct 1-click access to View Attendance, Check Results, Download Timetable, Submit Assignment, and View Announcements.
+
+### 2. 👤 Student Profile & Digital Identity Card
+- **Institutional Profile:** Full name, roll number, student ID, department, course, academic year, institutional email, phone, permanent address, and blood group.
+- **Guardian & Emergency Contacts:** Father/Mother/Guardian name, verified emergency phone number, and relation.
+- **Interactive Profile Editor:** Edit profile attributes with real-time field validation and local persistence.
+- **Digital Student ID Card:** Official university card preview with printable printable A4 identity verification document.
+- **Profile Completion Tracker:** Animated progress bar tracking completeness of student records.
+
+### 3. 📊 Attendance Management & Smart Predictor
+- **Detailed Ledger:** Subject-wise breakdown of classes conducted, classes attended, classes missed, and percentage.
+- **Visual Progress & Bar Charts:** Color-coded progress indicators (Green ≥ 75%, Amber 65-74%, Red < 65%).
+- **Smart Attendance Predictor:**
+  - Configurable minimum attendance threshold slider (65% to 90%, default 75%).
+  - Real-time calculation of **classes required to attend** to hit target percentage.
+  - Calculation of **safe bunk classes remaining** before dropping below threshold.
+- **Reports:** One-click CSV export and printable official attendance verification certificate.
+
+### 4. 🏆 Marks, Semester Results & CGPA Simulator
+- **Multi-Semester Grade Sheets:** Complete grade records across Semesters 1 through 6.
+- **Mark Breakdown:** Internal assessments (/30), external examinations (/70), total marks, letter grades (O, A+, A, B+), and grade points.
+- **Best & Lowest Scoring Highlights:** Automatic detection of highest scoring subject and subjects needing improvement.
+- **Interactive CGPA / SGPA Simulator:** Target GPA calculator allowing students to experiment with prospective grades.
+- **Printable Grade Card:** Official semester grade sheet generation with university seal formatting.
+
+### 5. 📅 Interactive Weekly Timetable
+- **Weekly Matrix:** Monday through Saturday schedule with class timings, classroom numbers, and faculty names.
+- **Active Class Highlighting:** Dynamic simulator highlighting the current active lecture and next upcoming class.
+- **Filter by Day:** Easily toggle between full week view and daily routine.
+- **Print & Export:** Download timetable as CSV or printable PDF schedule.
+
+### 6. 📚 Subjects Management & Syllabus
+- **Curriculum Cards:** Subject code, credit units, faculty in-charge, and attendance status.
+- **Syllabus Modal:** Detailed 5-unit curriculum breakdown, course outcomes, and recommended reference textbooks.
+- **Direct Resource Links:** Quick links from subject cards to download notes and lecture slides.
+
+### 7. 📝 Assignments & Submissions
+- **Deadline Tracking:** Pending, submitted, late, and graded assignment statuses.
+- **Working File Upload Modal:** Interactive assignment submission modal with file selector, student comment input, and instant receipt notification.
+- **Countdown Timer:** Urgent deadline warnings for assignments due within 48 hours.
+
+### 8. 📝 Examinations & Admit Card (Hall Ticket)
+- **Upcoming Date Sheet:** End-semester examination timetable with subject, exam hall, seat number, and timings.
+- **Exam Countdown:** Live countdown timer to the next upcoming examination slot.
+- **Admit Card Generator:** One-click printable University Examination Admit Card with candidate photo, seat number, exam controller signature, and candidate instructions.
+
+### 9. 🔔 Notification Center & Announcements
+- **Categorized Alerts:** Attendance alerts, exam reminders, assignment deadlines, fee notices, and timetable updates.
+- **Interactive Controls:** Mark as read, mark all as read, delete notification, and unread counter badges.
+- **College Notice Board:** Official notices categorized into Academic, Examination, Events, and Holidays with attachment download links.
+
+### 10. 📖 Study Materials & Digital Library
+- **Categorized Repository:** Lecture notes, previous year question papers (PYQs), reference e-books, and laboratory manuals.
+- **Integrated Document Viewer:** Interactive document reader modal with search and preview capabilities.
+- **Bookmarks:** Save frequently used study materials for fast revision.
+
+### 11. 💳 Fee Management & Payment Receipts
+- **Fee Ledger:** Total semester fees, amount paid, and remaining balance.
+- **Payment History:** Complete transaction log with transaction IDs, dates, and payment modes.
+- **Simulated Payment Gateway:** Demo tuition fee payment modal with instant receipt generation.
+- **Printable Fee Receipt:** Official University accounts receipt with payment reference numbers and cashier stamp.
+
+### 12. 🗓️ Academic Calendar & Personal Planner
+- **Month & Week Views:** Interactive calendar showing exams, assignment due dates, college fests, workshops, and statutory holidays.
+- **Personal Study Events:** Add custom study tasks and personal academic reminders.
+- **Agenda View:** Scrollable list of upcoming key dates.
+
+### 13. 📈 Performance Analytics & Achievements
+- **Semester Progression Line Chart:** SGPA vs Cumulative CGPA trend over 6 semesters.
+- **Grade Distribution Donut Chart:** Visual breakdown of letter grades across all completed courses.
+- **Engineering Skill Radar:** Multi-dimensional competency assessment across core computer science competencies.
+- **Achievements & Certifications:** Verified hackathon wins, research papers, online certifications, and honors.
+
+### 14. 🛠️ Settings, Customization & Helpdesk
+- **Theme Studio:** Instant switching between Dark Navy, Executive Lumina (Light), Quantum Obsidian, and Emerald Matrix.
+- **Configurable Attendance Warning Threshold:** Adjust alert sensitivity between 65% and 90%.
+- **Notification Preferences:** Toggle institutional email digests, SMS alerts, and timetable change pings.
+- **Security & 2FA:** Password update form and two-factor authentication simulation.
+- **Help Center:** Searchable FAQs, campus advisor directory, and interactive student grievance ticket generator (`TICK-xxxx`).
 
 ---
 
-### 4. Interactive AI Playground (Star Feature)
-Experience 5 full-featured AI tools with realistic streaming synthesis, prompt templates, token counters, copy-to-clipboard, and conversation clear:
-1. **AI Chat Playground:** Multi-turn conversational copilot with role personas (Senior AI Architect, Research Scientist, Principal Developer, Creative Director).
-2. **Text Summarizer:** Condenses long paragraphs into executive takeaways with compression ratios and time-saved metrics.
-3. **AI Content Generator:** Drafts high-conversion headlines, value propositions, and thought leadership articles.
-4. **AI Prompt Assistant:** Elevates basic prompts into production-grade system prompts with output formats and constraints.
-5. **AI Code Explanation Tool:** Analyzes snippets, breaks down $\mathcal{O}(n)$ time & space complexity, explains logic step-by-step, and suggests optimizations.
-- **Live Inference Engine:** Users can input their own Google Gemini API key via the Key icon to execute live model calls directly from their browser, with fallback to built-in high-fidelity simulation!
+## 💻 Tech Stack
+
+- **Framework:** React 18 (Vite SPA)
+- **Styling:** Tailwind CSS with custom portal glassmorphism and theme variables
+- **Icons:** Lucide React
+- **Charts & Data Visualization:** Recharts (LineChart, BarChart, PieChart, RadarChart)
+- **State Management:** React Context API with LocalStorage sync
+- **Document Export:** Native HTML-to-print engine & CSV generators
 
 ---
 
-### 5. AI Products & Services Showcase
-Interactive product cards with hover glow, feature lists, and dual action buttons (*Learn More* modal and *Try Demo* playground launcher):
-- **A. AI Chat Assistant:** Conversational reasoning, NLU, multilingual fluency, hallucination suppression.
-- **B. AI Image Generator:** Text-to-visual studio, multiple styles, up to 8K resolution.
-- **C. AI Content Generator:** Long-form synthesis, tone adaptation, automated citation markers.
-- **D. AI Code Assistant:** Autocomplete, security vulnerability scanning, Big-O complexity analysis.
-- **E. AI Data Analytics:** Autonomous anomaly detection, time-series forecasting, automated chart synthesis.
-- **F. AI Automation:** Multi-agent orchestration, unstructured OCR/PDF parsing, self-healing webhooks.
+## 🏃 Local Development Setup
 
----
+To run this project locally on your computer:
 
-### 6. Key Features & Capabilities (10 Domains)
-Interactive capability grid with latency and accuracy badges:
-1. Machine Learning (`<15ms`, `99.4%`)
-2. Deep Learning (`<25ms`, `98.9%`)
-3. Natural Language Processing (`<35ms`, `99.1%`)
-4. Computer Vision (`<12ms`, `99.7%`)
-5. Generative AI (`<150ms`, `99.2%`)
-6. Predictive Analytics (`<8ms`, `98.5%`)
-7. Intelligent Automation (`<50ms`, `99.9%`)
-8. Speech Recognition (`<40ms`, `98.8%`)
-9. Recommendation Systems (`<10ms`, `97.9%`)
-10. AI Decision Support (`<20ms`, `99.6%`)
-
----
-
-### 7. AI Applications & Industries
-Real-world enterprise transformation across 7 critical sectors:
-- **Healthcare & Life Sciences:** +68% faster radiological review, medical imaging segmentation.
-- **Finance & Banking:** Sub-millisecond fraud defense, -84% false positives, $42M saved.
-- **E-Commerce & Retail:** Hyper-personalized recommendations, +34% conversion lift.
-- **Smart Manufacturing:** -41% equipment failure rate, optical surface defect detection.
-- **Education & EdTech:** Adaptive Socratic tutoring, automated code assignment feedback.
-- **Smart Agriculture:** Satellite multispectral crop stress surveillance, precision irrigation.
-- **Logistics & Transportation:** Dynamic multimodal graph routing, 28% fuel savings.
-
----
-
-### 8. Enterprise Technology Stack
-Categorized with proficiency levels and architecture status:
-- **Languages:** Python, JavaScript, TypeScript, Java.
-- **AI & ML:** PyTorch, TensorFlow, Hugging Face, Scikit-learn.
-- **Frontend:** React.js, Next.js, Tailwind CSS, Framer Motion.
-- **Backend:** FastAPI, Node.js, Django.
-- **Data & Infrastructure:** Docker, Kubernetes, PostgreSQL (pgvector), MongoDB.
-
----
-
-### 9. Why Choose NEXORA AI? (8 Pillars)
-1. Innovative AI Solutions (Patented Reasoning Core)
-2. Scalable Architecture (99.99% Uptime SLA)
-3. User-Friendly Experiences (5-Minute Integration)
-4. Data Privacy & Sovereignty (Zero-Data-Retention Guarantee)
-5. Responsible AI Development (100% Auditable Rules)
-6. Reliable 99.9% Production SLA (Multi-Region Redundancy)
-7. Flexible Integration (Universal SDKs & REST APIs)
-8. Continuous Autonomous Improvement (Self-Healing Model Weights)
-
----
-
-### 10. AI Workflow (6-Step Pipeline)
-Interactive stage explorer with inputs, algorithms, outputs, and pipeline completion tracking:
-1. Data Collection (Multimodal streaming ingestion)
-2. Data Processing (Cleaning, deduplication & normalization)
-3. Model Training (Distributed FP8 GPU optimization)
-4. AI Prediction (Sub-20ms speculative decoding)
-5. Result Generation (Structured synthesis & output guards)
-6. Continuous Improvement (Autonomous drift monitoring & active retraining)
-
----
-
-### 11. Company Statistics & Impact (Recharts Visualizations)
-- **Chart 1:** Line chart comparing *Nexora AI Reasoning Precision* vs *Industry Baseline* across model versions.
-- **Chart 2:** Bar chart illustrating *Process Speedup %* and *Cost Reduction %* across FinTech, Healthcare, Retail, Logistics, and Manufacturing.
-
----
-
-### 12. Leadership & Research Team
-Profiles with avatars, designations, bios, publication counts, patent counts, and social links:
-- **Dr. Elena Vance:** Founder & Chief Executive Officer (ex-MIT CSAIL)
-- **Marcus Sterling:** Chief AI Research Engineer
-- **Sarah Jenkins:** Lead Machine Learning Engineer
-- **David Kim:** Principal Full Stack & Cloud Architect
-- **Amara Patel:** Head of UI/UX & Generative Interface Design
-- **Dr. Leo Thorne:** Lead Data Scientist & Quantitative Analyst
-
----
-
-### 13. Transparent Pricing & Feature Comparison Matrix
-- **Starter Plan:** $49/mo ($39/mo billed yearly).
-- **Professional Plan (Most Recommended):** $199/mo ($159/mo billed yearly).
-- **Enterprise Plan:** Custom dedicated GPU pod pricing.
-- Interactive **Monthly / Yearly billing switch** with 20% discount badge.
-- Expandable **Full Plan Comparison Matrix** breaking down token quotas, image resolutions, latencies, fine-tuning adapters, and SLA guarantees.
-
----
-
-### 14. Customer Testimonials & Case Studies
-- **Testimonial Carousel:** Auto-advancing review cards with star ratings, reviewer headshots, company affiliations, and verified badges.
-- **5 In-Depth Case Studies:** Apex Global FinTech, BioScan Health Systems, OmniCommerce, Velocity Logistics, and CloudScale SaaS with modal deep-dives.
-
----
-
-### 15. AI Knowledge Center & Blog
-- Searchable and category-filtered articles.
-- Detailed modal reading view for research publications (e.g., *Beyond Transformers*, *Enterprise RAG Architectures*, *Responsible AI in Code*).
-
----
-
-### 16. Comprehensive FAQ Section
-Expandable accordions with real-time text filter covering architecture, privacy, pricing, and integration.
-
----
-
-### 17. Contact & Global Inquiry
-- Complete form with client validation (Full Name, Corporate Email, Company, Subject, Category, Message).
-- Asynchronous submission simulation generating a verifiable Reference ID (`#NEX-84920`).
-- Headquarters address, official emails, telephone numbers, and global cloud inference regions (US-West, EU-West, AP-North, AP-South).
-
----
-
-### 18. Floating AI Website Chatbot ("NexoraBot")
-- Accessible via floating button in bottom-right corner.
-- Suggested prompt pills for quick interaction.
-- Conversational history, simulated intelligent responses, minimize and close controls.
-
----
-
-### 19. Smart Search Command Palette (`Ctrl + K`)
-- Instant modal searching across Products, Features, Technologies, Blogs, FAQs, and Team Members.
-
----
-
-### 20. Privacy & Trust Center Modal
-- Detailed documentation on Zero Data Retention, algorithmic fairness, model limitations, and SOC2 / HIPAA / ISO 27001 certifications.
-
----
-
-## 🛠️ Technology Stack
-
-| Domain | Technologies |
-|---|---|
-| **Frontend Framework** | React 18, Vite 5 |
-| **Styling & Design** | Tailwind CSS 3.4, Glassmorphism, CSS Custom Properties |
-| **Icons & Visuals** | Lucide React (`lucide-react`) |
-| **Charts & Benchmarks** | Recharts (`recharts`) |
-| **Interactive Canvas** | HTML5 Canvas (Neural Synapses & Particle Mesh) |
-| **State Management** | React Context API (`ThemeContext`, `ToastContext`) |
-
----
-
-## 🚀 Getting Started
-
-### 1. Installation
-Clone or navigate to the project directory and install dependencies:
 ```bash
+# 1. Clone the repository
+git clone https://github.com/dileepsaidasari1985-debug/College_Student_Dashboard.git
+
+# 2. Enter directory
+cd College_Student_Dashboard
+
+# 3. Install dependencies
 npm install
-```
 
-### 2. Development Server
-Start the local Vite development server:
-```bash
+# 4. Start Vite development server
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) in your web browser.
 
-### 3. Production Build
-Compile optimized production bundles:
+Visit `http://localhost:5173` in your browser.
+
+---
+
+## 📦 Building for Production
+
 ```bash
+# Build production bundle
 npm run build
-```
 
-### 4. Preview Production Build
-```bash
+# Preview production build locally
 npm run preview
 ```
 
 ---
 
-&copy; 2026 **NEXORA AI Inc.** All rights reserved. Built for visionary artificial intelligence innovation.
+## 🛡️ License & University Attribution
+Developed for **Autonomous Indian Institute of Technology & Science** Student ERP Portal. Designed for modern higher education institutions.
+All demo data is realistic simulation data for institutional portal evaluation.
