@@ -63,14 +63,22 @@ export const THEME_PRESETS = {
   }
 };
 
-const ThemeContext = createContext({
+const defaultPreset = THEME_PRESETS.cyberpunkNavy;
+
+const defaultThemeContextValue = {
   activePreset: 'cyberpunkNavy',
   setPreset: () => {},
+  setThemePreset: () => {},
+  presetConfig: defaultPreset,
+  themePreset: defaultPreset,
   themeMode: 'dark',
   toggleThemeMode: () => {},
   compactMode: false,
   setCompactMode: () => {},
-});
+  toggleCompactMode: () => {},
+};
+
+const ThemeContext = createContext(defaultThemeContextValue);
 
 export const ThemeProvider = ({ children }) => {
   const [activePreset, setActivePreset] = useState(() => {
@@ -158,4 +166,7 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  return context || defaultThemeContextValue;
+};
