@@ -17,79 +17,51 @@ import {
 
 const StudentContext = createContext();
 
+const safeLoad = (key, fallback) => {
+  try {
+    const saved = localStorage.getItem(key);
+    if (!saved) return fallback;
+    const parsed = JSON.parse(saved);
+    if (Array.isArray(fallback)) {
+      return Array.isArray(parsed) && parsed.length > 0 ? parsed : fallback;
+    }
+    if (typeof fallback === 'object' && fallback !== null) {
+      return { ...fallback, ...parsed };
+    }
+    return parsed !== undefined && parsed !== null ? parsed : fallback;
+  } catch (e) {
+    return fallback;
+  }
+};
+
 export const StudentProvider = ({ children }) => {
-  const [student, setStudent] = useState(() => {
-    const saved = localStorage.getItem('iits_student_profile');
-    return saved ? JSON.parse(saved) : INITIAL_STUDENT_PROFILE;
-  });
-
+  const [student, setStudent] = useState(() => safeLoad('iits_student_profile', INITIAL_STUDENT_PROFILE));
   const [attendanceThreshold, setAttendanceThreshold] = useState(() => {
-    const saved = localStorage.getItem('iits_attendance_threshold');
-    return saved ? Number(saved) : 75;
+    try {
+      const saved = localStorage.getItem('iits_attendance_threshold');
+      return saved ? Number(saved) : 75;
+    } catch {
+      return 75;
+    }
   });
-
-  const [subjects, setSubjects] = useState(() => {
-    const saved = localStorage.getItem('iits_subjects');
-    return saved ? JSON.parse(saved) : INITIAL_SUBJECTS;
-  });
-
-  const [semesterResults, setSemesterResults] = useState(() => {
-    const saved = localStorage.getItem('iits_semester_results');
-    return saved ? JSON.parse(saved) : INITIAL_SEMESTER_RESULTS;
-  });
-
-  const [timetable, setTimetable] = useState(() => {
-    const saved = localStorage.getItem('iits_timetable');
-    return saved ? JSON.parse(saved) : INITIAL_TIMETABLE;
-  });
-
-  const [assignments, setAssignments] = useState(() => {
-    const saved = localStorage.getItem('iits_assignments');
-    return saved ? JSON.parse(saved) : INITIAL_ASSIGNMENTS;
-  });
-
-  const [examinations, setExaminations] = useState(() => {
-    const saved = localStorage.getItem('iits_examinations');
-    return saved ? JSON.parse(saved) : INITIAL_EXAMINATIONS;
-  });
-
-  const [announcements, setAnnouncements] = useState(() => {
-    const saved = localStorage.getItem('iits_announcements');
-    return saved ? JSON.parse(saved) : INITIAL_ANNOUNCEMENTS;
-  });
-
-  const [notifications, setNotifications] = useState(() => {
-    const saved = localStorage.getItem('iits_notifications');
-    return saved ? JSON.parse(saved) : INITIAL_NOTIFICATIONS;
-  });
-
-  const [studyMaterials, setStudyMaterials] = useState(() => {
-    const saved = localStorage.getItem('iits_study_materials');
-    return saved ? JSON.parse(saved) : INITIAL_STUDY_MATERIALS;
-  });
-
-  const [fees, setFees] = useState(() => {
-    const saved = localStorage.getItem('iits_fees');
-    return saved ? JSON.parse(saved) : INITIAL_FEES;
-  });
-
-  const [calendarEvents, setCalendarEvents] = useState(() => {
-    const saved = localStorage.getItem('iits_calendar_events');
-    return saved ? JSON.parse(saved) : INITIAL_CALENDAR_EVENTS;
-  });
-
-  const [studyTasks, setStudyTasks] = useState(() => {
-    const saved = localStorage.getItem('iits_study_tasks');
-    return saved ? JSON.parse(saved) : INITIAL_STUDY_TASKS;
-  });
-
-  const [achievements, setAchievements] = useState(() => {
-    const saved = localStorage.getItem('iits_achievements');
-    return saved ? JSON.parse(saved) : INITIAL_ACHIEVEMENTS;
-  });
-
+  const [subjects, setSubjects] = useState(() => safeLoad('iits_subjects', INITIAL_SUBJECTS));
+  const [semesterResults, setSemesterResults] = useState(() => safeLoad('iits_semester_results', INITIAL_SEMESTER_RESULTS));
+  const [timetable, setTimetable] = useState(() => safeLoad('iits_timetable', INITIAL_TIMETABLE));
+  const [assignments, setAssignments] = useState(() => safeLoad('iits_assignments', INITIAL_ASSIGNMENTS));
+  const [examinations, setExaminations] = useState(() => safeLoad('iits_examinations', INITIAL_EXAMINATIONS));
+  const [announcements, setAnnouncements] = useState(() => safeLoad('iits_announcements', INITIAL_ANNOUNCEMENTS));
+  const [notifications, setNotifications] = useState(() => safeLoad('iits_notifications', INITIAL_NOTIFICATIONS));
+  const [studyMaterials, setStudyMaterials] = useState(() => safeLoad('iits_study_materials', INITIAL_STUDY_MATERIALS));
+  const [fees, setFees] = useState(() => safeLoad('iits_fees', INITIAL_FEES));
+  const [calendarEvents, setCalendarEvents] = useState(() => safeLoad('iits_calendar_events', INITIAL_CALENDAR_EVENTS));
+  const [studyTasks, setStudyTasks] = useState(() => safeLoad('iits_study_tasks', INITIAL_STUDY_TASKS));
+  const [achievements, setAchievements] = useState(() => safeLoad('iits_achievements', INITIAL_ACHIEVEMENTS));
   const [activeTab, setActiveTab] = useState(() => {
-    return localStorage.getItem('iits_active_tab') || 'dashboard';
+    try {
+      return localStorage.getItem('iits_active_tab') || 'dashboard';
+    } catch {
+      return 'dashboard';
+    }
   });
 
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
