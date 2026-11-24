@@ -1,257 +1,126 @@
 import React, { useState } from 'react';
-import { ToastProvider } from './components/common/Toast';
-import { CustomCursor } from './components/common/CustomCursor';
-import { ScrollProgress } from './components/common/ScrollProgress';
-import { BackToTop } from './components/common/BackToTop';
-import { InteractiveBackground } from './components/common/InteractiveBackground';
-import { CommandPalette } from './components/common/CommandPalette';
+import { useStudent } from './context/StudentContext';
+import { useTheme } from './context/ThemeContext';
 
-// Core Sections
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Products } from './components/Products';
-import { AIPlayground } from './components/AIPlayground';
-import { Features } from './components/Features';
-import { Applications } from './components/Applications';
-import { Technology } from './components/Technology';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { Workflow } from './components/Workflow';
-import { Statistics } from './components/Statistics';
-import { Team } from './components/Team';
-import { Pricing } from './components/Pricing';
-import { Testimonials } from './components/Testimonials';
-import { CaseStudies } from './components/CaseStudies';
-import { Blog } from './components/Blog';
-import { FAQ } from './components/FAQ';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
+// Layout
+import { Sidebar } from './components/layout/Sidebar';
+import { Navbar } from './components/layout/Navbar';
 
-// Floating Chatbot
-import { WebsiteChatbot } from './components/WebsiteChatbot';
+// Common Modals
+import { GlobalSearchModal } from './components/common/GlobalSearchModal';
+import { LogoutModal } from './components/common/LogoutModal';
 
-// Modals
-import { DemoRequestModal } from './components/modals/DemoRequestModal';
-import { ProductDetailModal } from './components/modals/ProductDetailModal';
-import { CaseStudyModal } from './components/modals/CaseStudyModal';
-import { BlogModal } from './components/modals/BlogModal';
-import { TeamModal } from './components/modals/TeamModal';
-import { TrustCenterModal } from './components/modals/TrustCenterModal';
-import { LegalModal } from './components/modals/LegalModal';
+// Views
+import { DashboardOverview } from './components/dashboard/DashboardOverview';
+import { ProfileView } from './components/profile/ProfileView';
+import { AttendanceView } from './components/attendance/AttendanceView';
+import { ResultsView } from './components/results/ResultsView';
+import { SubjectsView } from './components/subjects/SubjectsView';
+import { TimetableView } from './components/timetable/TimetableView';
+import { AssignmentsView } from './components/assignments/AssignmentsView';
+import { ExaminationsView } from './components/examinations/ExaminationsView';
+import { NotificationsView } from './components/notifications/NotificationsView';
+import { AnnouncementsView } from './components/announcements/AnnouncementsView';
+import { StudyMaterialsView } from './components/study/StudyMaterialsView';
+import { FeesView } from './components/fees/FeesView';
+import { CalendarView } from './components/calendar/CalendarView';
+import { AnalyticsView } from './components/analytics/AnalyticsView';
+import { SettingsView } from './components/settings/SettingsView';
+import { HelpView } from './components/help/HelpView';
 
-function App() {
-  const [currentLang, setCurrentLang] = useState('en');
-  const [playgroundTool, setPlaygroundTool] = useState('chat');
+export default function App() {
+  const { activeTab, sidebarCollapsed } = useStudent();
+  const { themePreset, themeMode } = useTheme();
 
-  // Modal States
-  const [demoModalOpen, setDemoModalOpen] = useState(false);
-  const [selectedPlanForDemo, setSelectedPlanForDemo] = useState(null);
-  const [productModalData, setProductModalData] = useState(null);
-  const [caseStudyModalData, setCaseStudyModalData] = useState(null);
-  const [blogModalData, setBlogModalData] = useState(null);
-  const [teamModalData, setTeamModalData] = useState(null);
-  const [trustCenterOpen, setTrustCenterOpen] = useState(false);
-  const [legalModalConfig, setLegalModalConfig] = useState(null); // { title, type }
-  const [searchPaletteOpen, setSearchPaletteOpen] = useState(false);
+  const [searchModalOpen, setSearchModalOpen] = useState(false);
+  const [logoutModalOpen, setLogoutModalOpen] = useState(false);
 
-  const handleLaunchPlaygroundTool = (toolId) => {
-    setPlaygroundTool(toolId);
-    const el = document.getElementById('playground');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  const renderActiveView = () => {
+    switch (activeTab) {
+      case 'dashboard':
+        return <DashboardOverview />;
+      case 'profile':
+        return <ProfileView />;
+      case 'attendance':
+        return <AttendanceView />;
+      case 'results':
+        return <ResultsView />;
+      case 'subjects':
+        return <SubjectsView />;
+      case 'timetable':
+        return <TimetableView />;
+      case 'assignments':
+        return <AssignmentsView />;
+      case 'examinations':
+        return <ExaminationsView />;
+      case 'notifications':
+        return <NotificationsView />;
+      case 'announcements':
+        return <AnnouncementsView />;
+      case 'study-materials':
+        return <StudyMaterialsView />;
+      case 'fees':
+        return <FeesView />;
+      case 'calendar':
+        return <CalendarView />;
+      case 'analytics':
+        return <AnalyticsView />;
+      case 'settings':
+        return <SettingsView onOpenLogout={() => setLogoutModalOpen(true)} />;
+      case 'help':
+        return <HelpView />;
+      default:
+        return <DashboardOverview />;
     }
   };
 
   return (
-    <ToastProvider>
-      {/* Interactive Background with Neural Particles */}
-      <InteractiveBackground />
+    <div className={`min-h-screen ${themePreset.bgClass} flex flex-col font-sans transition-colors duration-300 text-slate-800 dark:text-slate-100`}>
+      {/* Fixed Sidebar */}
+      <Sidebar onOpenLogout={() => setLogoutModalOpen(true)} />
 
-      {/* Desktop Responsive Animated Cursor */}
-      <CustomCursor />
-
-      {/* Top Scroll Progress Indicator */}
-      <ScrollProgress />
-
-      {/* Sticky Navigation Bar */}
-      <Navbar
-        currentLang={currentLang}
-        onChangeLang={setCurrentLang}
-        onOpenDemoRequest={() => {
-          setSelectedPlanForDemo(null);
-          setDemoModalOpen(true);
-        }}
-        onOpenSearch={() => setSearchPaletteOpen(true)}
-      />
-
-      {/* Main Content Sections */}
-      <main className="relative z-10 overflow-hidden">
-        {/* 1. Hero Section */}
-        <Hero
-          onOpenDemoRequest={() => {
-            setSelectedPlanForDemo(null);
-            setDemoModalOpen(true);
-          }}
-          onSelectPlaygroundTool={handleLaunchPlaygroundTool}
+      {/* Main Page Content Area */}
+      <div
+        className={`flex-1 flex flex-col transition-all duration-300 ${
+          sidebarCollapsed ? 'lg:pl-20' : 'lg:pl-64'
+        }`}
+      >
+        {/* Sticky Top Navbar */}
+        <Navbar
+          onOpenSearch={() => setSearchModalOpen(true)}
+          onOpenLogout={() => setLogoutModalOpen(true)}
         />
 
-        {/* 2. About Our Company */}
-        <About
-          onOpenTrustCenter={() => setTrustCenterOpen(true)}
-        />
+        {/* Dynamic Route Content */}
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto animate-fadeIn">
+          {renderActiveView()}
+        </main>
 
-        {/* 3. AI Products and Services */}
-        <Products
-          onOpenProductModal={(product) => setProductModalData(product)}
-          onSelectPlaygroundTool={handleLaunchPlaygroundTool}
-        />
-
-        {/* 4. Interactive AI Playground (Star Feature) */}
-        <AIPlayground
-          defaultToolId={playgroundTool}
-        />
-
-        {/* 5. Key Features & Capabilities */}
-        <Features />
-
-        {/* 6. AI Applications and Industries */}
-        <Applications
-          onOpenIndustryModal={(industry) => {
-            // Trigger Demo Request with Industry Context
-            setSelectedPlanForDemo({ name: `${industry.name} Industry Pilot` });
-            setDemoModalOpen(true);
-          }}
-        />
-
-        {/* 7. Technology Stack */}
-        <Technology />
-
-        {/* 8. Why Choose Our AI Company */}
-        <WhyChooseUs
-          onOpenDemoRequest={() => {
-            setSelectedPlanForDemo(null);
-            setDemoModalOpen(true);
-          }}
-        />
-
-        {/* 9. AI Workflow Section */}
-        <Workflow />
-
-        {/* 10. Company Statistics & Impact (Recharts) */}
-        <Statistics />
-
-        {/* 11. Our Team Section */}
-        <Team
-          onOpenTeamModal={(member) => setTeamModalData(member)}
-        />
-
-        {/* 12. Pricing & Subscription Plans */}
-        <Pricing
-          onSelectPlan={(plan) => setSelectedPlanForDemo(plan)}
-          onOpenDemoRequest={() => setDemoModalOpen(true)}
-        />
-
-        {/* 13. Customer Testimonials */}
-        <Testimonials />
-
-        {/* 14. Case Studies & Projects */}
-        <CaseStudies
-          onOpenCaseStudyModal={(study) => setCaseStudyModalData(study)}
-        />
-
-        {/* 15. Blog & AI News (Knowledge Center) */}
-        <Blog
-          onOpenBlogModal={(post) => setBlogModalData(post)}
-        />
-
-        {/* 16. Frequently Asked Questions */}
-        <FAQ
-          onOpenDemoRequest={() => {
-            setSelectedPlanForDemo(null);
-            setDemoModalOpen(true);
-          }}
-        />
-
-        {/* 17. Contact & Global Inquiry */}
-        <Contact />
-      </main>
-
-      {/* 18. Footer */}
-      <Footer
-        onOpenPrivacyModal={() => setLegalModalConfig({ title: 'Privacy Policy', type: 'privacy' })}
-        onOpenTermsModal={() => setLegalModalConfig({ title: 'Terms & Conditions', type: 'terms' })}
-      />
-
-      {/* Floating Website Chatbot (NexoraBot) */}
-      <WebsiteChatbot
-        onOpenDemoRequest={() => {
-          setSelectedPlanForDemo(null);
-          setDemoModalOpen(true);
-        }}
-        onSelectPlaygroundTool={handleLaunchPlaygroundTool}
-      />
-
-      {/* Floating Back to Top Button */}
-      <BackToTop />
-
-      {/* Smart Search Command Palette (Ctrl+K) */}
-      <CommandPalette
-        isOpen={searchPaletteOpen}
-        onClose={() => setSearchPaletteOpen(false)}
-        onOpenProductModal={(p) => setProductModalData(p)}
-        onOpenBlogModal={(b) => setBlogModalData(b)}
-        onOpenTeamModal={(m) => setTeamModalData(m)}
-        onOpenDemoRequest={() => {
-          setSelectedPlanForDemo(null);
-          setDemoModalOpen(true);
-        }}
-      />
+        {/* Global Footer */}
+        <footer className="border-t border-slate-200/80 dark:border-slate-800/80 py-4 px-6 text-center text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-2 max-w-7xl mx-auto">
+            <span>
+              &copy; {new Date().getFullYear()} Autonomous Indian Institute of Technology & Science • Student Portal ERP v4.2
+            </span>
+            <div className="flex items-center gap-4 text-[11px]">
+              <span>UGC Autonomous Accredited Grade A++</span>
+              <span>•</span>
+              <span>Security Verified SSL/TLS</span>
+            </div>
+          </div>
+        </footer>
+      </div>
 
       {/* Global Modals */}
-      <DemoRequestModal
-        isOpen={demoModalOpen}
-        onClose={() => setDemoModalOpen(false)}
-        preselectedPlan={selectedPlanForDemo}
+      <GlobalSearchModal
+        isOpen={searchModalOpen}
+        onClose={() => setSearchModalOpen(false)}
       />
 
-      <ProductDetailModal
-        product={productModalData}
-        isOpen={Boolean(productModalData)}
-        onClose={() => setProductModalData(null)}
-        onLaunchPlayground={handleLaunchPlaygroundTool}
+      <LogoutModal
+        isOpen={logoutModalOpen}
+        onClose={() => setLogoutModalOpen(false)}
       />
-
-      <CaseStudyModal
-        study={caseStudyModalData}
-        isOpen={Boolean(caseStudyModalData)}
-        onClose={() => setCaseStudyModalData(null)}
-      />
-
-      <BlogModal
-        post={blogModalData}
-        isOpen={Boolean(blogModalData)}
-        onClose={() => setBlogModalData(null)}
-      />
-
-      <TeamModal
-        member={teamModalData}
-        isOpen={Boolean(teamModalData)}
-        onClose={() => setTeamModalData(null)}
-      />
-
-      <TrustCenterModal
-        isOpen={trustCenterOpen}
-        onClose={() => setTrustCenterOpen(false)}
-      />
-
-      <LegalModal
-        title={legalModalConfig?.title}
-        type={legalModalConfig?.type}
-        isOpen={Boolean(legalModalConfig)}
-        onClose={() => setLegalModalConfig(null)}
-      />
-    </ToastProvider>
+    </div>
   );
 }
-
-export default App;
